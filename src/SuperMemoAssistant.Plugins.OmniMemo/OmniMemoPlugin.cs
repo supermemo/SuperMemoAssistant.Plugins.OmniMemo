@@ -75,7 +75,15 @@ namespace SuperMemoAssistant.Plugins.OmniMemo
 
     #region Methods Impl
 
-    protected override void PluginInit()
+    protected override void OnPluginInitialized()
+    {
+      MainWindow = new OmniMemoWindow();
+      Application.Current.MainWindow = MainWindow;
+
+      base.OnPluginInitialized();
+    }
+
+    protected override void OnSMStarted()
     {
       Svc.HotKeyManager
          .RegisterGlobal(
@@ -85,8 +93,7 @@ namespace SuperMemoAssistant.Plugins.OmniMemo
            new HotKey(Key.F, KeyModifiers.AltShift),
            ShowOmniMemo);
 
-      MainWindow = new OmniMemoWindow();
-      Application.Current.MainWindow = MainWindow;
+      base.OnSMStarted();
     }
 
     #endregion
