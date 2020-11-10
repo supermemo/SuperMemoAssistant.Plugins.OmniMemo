@@ -54,7 +54,7 @@ namespace SuperMemoAssistant.Plugins.OmniMemo
 
     #region Constructors
 
-    public OmniMemoPlugin() : base("https://a63c3dad9552434598dae869d2026696@sentry.io/1362046") { }
+    public OmniMemoPlugin() : base("https://0ec64bd3b82b4e5d97cec6b2df5e94cb@o218793.ingest.sentry.io/5506810") { }
 
     #endregion
 
@@ -83,7 +83,7 @@ namespace SuperMemoAssistant.Plugins.OmniMemo
       base.OnPluginInitialized();
     }
 
-    protected override void OnSMStarted()
+    protected override void OnSMStarted(bool wasSMAlreadyStarted)
     {
       Svc.HotKeyManager
          .RegisterGlobal(
@@ -93,7 +93,7 @@ namespace SuperMemoAssistant.Plugins.OmniMemo
            new HotKey(Key.F, KeyModifiers.AltShift),
            ShowOmniMemo);
 
-      base.OnSMStarted();
+      base.OnSMStarted(wasSMAlreadyStarted);
     }
 
     #endregion
